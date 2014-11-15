@@ -1,0 +1,5 @@
+require 'monadist/version'
+require 'monadist/monad'
+require 'monadist/identity'
+require 'monadist/maybe'
+require 'monadist/list'
