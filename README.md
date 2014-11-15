@@ -1,6 +1,10 @@
 # Monadist
 
-Practical implementation of a couple of popular monads in Ruby.
+A practical and useful Ruby implementation of a couple of popular monads.
+Method naming follows the Haskell convention so the gem can be used for trying to understand monads
+(mostly described in tutorials using Haskell).
+
+Monads implemented:
 
 * Identity (for explanatory purposes)
 * Maybe
