@@ -2,7 +2,10 @@ module Monadist
   class Monad
 
     def join
-      #TODO
+      bind do |value|
+        raise "Wrapped value not a monad of type #{self.class.name}" unless value.instance_of? self.class
+        value
+      end
     end
 
 
