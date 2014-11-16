@@ -6,9 +6,11 @@ Method naming follows the Haskell convention so the gem can be used for trying t
 
 Monads implemented:
 
-* Identity (for explanatory purposes)
+* Identity (for educational purposes)
 * Maybe
 * List
+* Continuation
+* Meanwhile
 
 ## Installation
 
@@ -28,7 +30,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+For examples on how to use these monads, please check out the [examples](https://github.com/zormandi/monadist/tree/master/examples) directory.
 
 ## Contributing
 
