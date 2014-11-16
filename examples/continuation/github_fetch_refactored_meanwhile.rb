@@ -46,4 +46,4 @@ Monadist::Meanwhile.unit('https://api.github.com/').
   fmap { |contributors| get_most_prolific_user contributors }.
   run { |user| puts "The most influential Rubyist is #{user['name']} (#{user['login']})" }
 
-sleep 1 while Thread.list.count > 1
+sleep 0.1 while Thread.list.count > 1

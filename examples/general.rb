@@ -22,4 +22,6 @@ p full_name(nothing).value
 p full_name(maybe).value
 p full_name(list).values
 full_name(continuation).run { |full_name| p full_name }
+
 full_name(meanwhile).run { |full_name| p full_name }
+sleep 0.1 while Thread.list.count > 1
