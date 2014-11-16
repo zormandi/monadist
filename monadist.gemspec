@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Zoltan Ormandi"]
   spec.email         = ["zoltan.ormandi@gmail.com"]
   spec.summary       = %q{Practical implementation of a couple of popular monads.}
-  spec.description   = %q{TODO: A practical and useful Ruby implementation of a couple of popular monads. Method naming follows the Haskell convention so the gem can be used for trying to understand monads (mostly described in tutorials using Haskell).}
+  spec.description   = %q{A practical and useful Ruby implementation of a couple of popular monads. Method naming follows the Haskell convention so the gem can be used for trying to understand monads (mostly described in tutorials using Haskell).}
   spec.homepage      = "https://github.com/zormandi/monadist"
   spec.license       = "MIT"
 
