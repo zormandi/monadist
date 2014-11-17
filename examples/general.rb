@@ -1,5 +1,5 @@
 require 'monadist'
-require 'shims'
+require 'monadist/shims'
 require 'json'
 
 nothing = possibly_nil nil
