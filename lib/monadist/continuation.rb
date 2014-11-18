@@ -18,7 +18,7 @@ module Monadist
 
 
     def run(&block)
-      @block.call(block || (lambda { |value| value }))
+      @block.call(block || lambda { |value| value })
     end
 
 
