@@ -70,6 +70,49 @@ end
 
 
 
+Monadist::Continuation.new { |success| get_json 'https://api.github.com/', &success }.bind do |urls|
+  org_url_template = URITemplate.new(urls['organization_url'])
+  org_url = org_url_template.expand(org: 'ruby')
+
+  Monadist::Continuation.new { |success| get_json org_url, &success }.bind do |org|
+    repos_url = org['repos_url']
+
+    Monadist::Continuation.new { |success| get_json repos_url, &success }.bind do |repos|
+      most_popular_repo = repos.max_by { |repo| repo['watchers_count'] }
+      repo_url = most_popular_repo['url']
+
+      Monadist::Continuation.new { |success| get_json repo_url, &success }.bind do |repo|
+        contributors_url = repo['contributors_url']
+
+        Monadist::Continuation.new { |success| get_json contributors_url, &success }.bind do |users|
+          most_prolific_user = users.max_by { |user| user['contributions'] }
+          user_url = most_prolific_user['url']
+
+          Monadist::Continuation.new { |success| get_json user_url, &success }
+        end
+      end
+    end
+  end
+end.run do |user|
+  puts "The most influential Rubyist is #{user['name']} (#{user['login']})"
+end
+
+
+get_github_api_urls.bind do |urls|
+  get_org(urls, 'ruby').bind do |org|
+    get_repos(org).bind do |repos|
+      get_most_popular_repo(repos).bind do |repo|
+        get_contributors(repo).bind do |users|
+          get_most_prolific_user(users)
+        end
+      end
+    end
+  end
+end.run do |user|
+  puts "The most influential Rubyist is #{user['name']} (#{user['login']})"
+end
+
+
 get_github_api_urls.
   bind { |urls| get_org urls, 'ruby' }.
   bind { |org| get_repos org }.
