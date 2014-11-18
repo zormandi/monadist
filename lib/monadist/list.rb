@@ -12,7 +12,7 @@ module Monadist
 
 
     def bind(&block)
-      List.new values.map(&block).flat_map(&:values)
+      self.class.new values.map(&block).flat_map(&:values)
     end
 
 
