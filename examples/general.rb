@@ -3,8 +3,8 @@ require 'monadist/shims'
 require 'json'
 
 nothing = possibly_nil nil
-maybe = possibly_nil '{"first_name":"Sam", "last_name":"Vimes"}'
-list = list(['{"first_name":"Granny", "last_name":"Weatherwax"}', '{"first_name":"Nanny", "last_name":"Ogg"}'])
+just_value = possibly_nil '{"first_name":"Sam", "last_name":"Vimes"}'
+json_list = list ['{"first_name":"Granny", "last_name":"Weatherwax"}', '{"first_name":"Nanny", "last_name":"Ogg"}']
 continuation = with '{"first_name":"Fred", "last_name":"Colon"}'
 meanwhile = meanwhile_with '{"first_name":"Nobby", "last_name":"Nobbs"}'
 
@@ -19,8 +19,8 @@ end
 
 
 p full_name(nothing).value
-p full_name(maybe).value
-p full_name(list).values
+p full_name(just_value).value
+p full_name(json_list).values
 full_name(continuation).run { |full_name| p full_name }
 
 full_name(meanwhile).run { |full_name| p full_name }
