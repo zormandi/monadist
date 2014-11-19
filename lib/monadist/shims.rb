@@ -4,8 +4,8 @@ end
 
 
 
-def list(*values)
-  Monadist::List.unit *values
+def list(value)
+  Monadist::List.unit value
 end
 
 

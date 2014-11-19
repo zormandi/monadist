@@ -4,7 +4,7 @@ require 'json'
 
 nothing = possibly_nil nil
 maybe = possibly_nil '{"first_name":"Sam", "last_name":"Vimes"}'
-list = list '{"first_name":"Granny", "last_name":"Weatherwax"}', '{"first_name":"Nanny", "last_name":"Ogg"}'
+list = list(['{"first_name":"Granny", "last_name":"Weatherwax"}', '{"first_name":"Nanny", "last_name":"Ogg"}'])
 continuation = with '{"first_name":"Fred", "last_name":"Colon"}'
 meanwhile = meanwhile_with '{"first_name":"Nobby", "last_name":"Nobbs"}'
 
